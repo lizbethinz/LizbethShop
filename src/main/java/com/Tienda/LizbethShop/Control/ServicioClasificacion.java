@@ -15,6 +15,7 @@ import java.util.Map;
 
 //importar paquetes de servicio
 import  com.Tienda.Catalogo.Constructor.Clasificaciones;
+import com.Tienda.Vista.VClasificacion;
 
 
 @RestController
@@ -22,11 +23,13 @@ public class ServicioClasificacion {
 
 	
 	@RequestMapping(value="/Clasificacion", method = RequestMethod.GET )
-	public ResponseEntity<Object> GetClasificacion(@RequestBody Clasificaciones clasificacion){
+	public ResponseEntity<Object> GetClasificacion(@RequestBody Clasificaciones clasificacion) throws Exception{
+		VClasificacion clasificacionV= new VClasificacion();
 		String respuesta="";
 		HttpStatus estatus=null;
 		if(clasificacion.getIdClasificacion()!=0) {
-			respuesta= "Es una clasificación existente";
+			clasificacion = clasificacionV.consulta(clasificacion);
+			respuesta= clasificacion.toString();
 			estatus= HttpStatus.OK;
 			
 		}else {

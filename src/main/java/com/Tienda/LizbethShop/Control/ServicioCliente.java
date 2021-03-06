@@ -15,17 +15,22 @@ import java.util.Map;
 
 //importar paquetes de servicio
 import  com.Tienda.Catalogo.Constructor.Clientes;
+import com.Tienda.Vista.VCliente;
 
 @RestController
 public class ServicioCliente {
 
 	
 	@RequestMapping(value="/Cliente", method = RequestMethod.GET )
-	public ResponseEntity<Object> GetCliente(@RequestBody Clientes cliente){
+	public ResponseEntity<Object> GetCliente(@RequestBody Clientes cliente) throws Exception{
+		VCliente clienteV = new VCliente();
 		String respuesta="";
 		HttpStatus estatus=null;
+		
 		if(cliente.getIdCliente()!=0) {
-			respuesta= "Es un cliente existente";
+			cliente=clienteV.consulta(cliente);
+			
+			respuesta=cliente.toString();
 			estatus= HttpStatus.OK;
 			
 		}else {

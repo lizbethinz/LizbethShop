@@ -6,7 +6,7 @@ import com.Tienda.Modelo.*;
 public class VPrenda {
 	
 	
-	public Prendas consulta( Prendas prenda) {
+	public Prendas consulta( Prendas prenda) throws Exception {
 		
 		MPrenda prendaM = new MPrenda();
 		try {
@@ -14,6 +14,7 @@ public class VPrenda {
 			
 		} catch (Exception e) {
 			// TODO: handle exception
+			throw e;
 		}
 		
 		return prenda;

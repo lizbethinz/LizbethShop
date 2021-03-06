@@ -26,7 +26,7 @@ public class ServicioPrenda {
 		return "Hola Mundo";
 	}
 	@RequestMapping(value="/Prenda", method = RequestMethod.GET )
-	public ResponseEntity<Object> GetPrenda(@RequestBody Prendas prenda){
+	public ResponseEntity<Object> GetPrenda(@RequestBody Prendas prenda) throws Exception{
 		VPrenda prendaV= new VPrenda();
 		
 		

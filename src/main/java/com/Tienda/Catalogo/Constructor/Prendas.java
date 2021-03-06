@@ -53,7 +53,7 @@ public class Prendas {
 	}
 
 	public void setId(int id) {
-		this.id = clasificacion;
+		this.id = id;
 	}
 
 	public Prendas() {

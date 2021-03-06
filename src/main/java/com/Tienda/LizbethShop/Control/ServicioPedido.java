@@ -15,17 +15,20 @@ import java.util.Map;
 
 //importar paquetes de servicio
 import  com.Tienda.Catalogo.Constructor.Pedidos;
+import com.Tienda.Vista.VPedido;
 
 @RestController
 public class ServicioPedido {
 	
 	@RequestMapping(value="/Pedido", method = RequestMethod.GET )
-	public ResponseEntity<Object> GetPedido(@RequestBody Pedidos pedido){
+	public ResponseEntity<Object> GetPedido(@RequestBody Pedidos pedido) throws Exception{
+		VPedido pedidoV = new VPedido();
 		String respuesta="";
 		HttpStatus estatus=null;
 		int idpedido = pedido.getIdPedido();
 		if(idpedido != 0) {
-			respuesta= "Su número de pedido es: "+idpedido ;
+			pedido= pedidoV.consulta(pedido);
+			respuesta= pedido.toString() ;
 			estatus= HttpStatus.OK;
 			
 		}else {

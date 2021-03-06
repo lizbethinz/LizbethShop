@@ -11,13 +11,13 @@ public class MPrenda {
 	PPrenda prendaP = new PPrenda();
 	
 	public Prendas Select(Prendas prenda)throws Exception {
-		String armarQuery = "select * from prendas where "+prendaP.Id+" =" +prenda.getId();
+		String armarQuery = "select * from prendas where "+prendaP.Id+" = " +prenda.getId();
         Statement abrirConexion = null;
         ResultSet ejecutar = null;
 		
         try {
-        	abrirConexion = (Statement) conn.abrir().createStatement();
-        	ejecutar = ((java.sql.Statement) abrirConexion).executeQuery(armarQuery);
+        	abrirConexion = conn.abrir().createStatement();
+        	ejecutar = abrirConexion.executeQuery(armarQuery);
         	
         	while(ejecutar.next()) {
         		prenda.setId(ejecutar.getInt(prendaP.Id)) ;
