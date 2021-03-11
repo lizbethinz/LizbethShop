@@ -1,6 +1,7 @@
 package com.Tienda.Modelo;
 
-import java.beans.Statement;
+//import java.beans.Statement;
+import java.sql.*;
 import java.sql.ResultSet;
 
 

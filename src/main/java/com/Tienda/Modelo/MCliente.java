@@ -1,7 +1,8 @@
 package com.Tienda.Modelo;
 
-import java.beans.Statement;
-import java.sql.ResultSet;
+//import java.beans.Statement;
+//import java.sql.ResultSet;
+import java.sql.*;
 
 import com.Tienda.Catalogo.Constructor.Clientes;
 import com.Tienda.Persistencia.MysqlConnection;
